@@ -17,15 +17,12 @@
 ###################################
 
 ###################################
-# Funktionen                      #
-###################################
-
-###################################
 # Variablen                       #
 ###################################
 st1=30
 
-path=/var/www/html/website/
+path=/PATH/TO/REPO/
+
 ###################################
 # Programm                        #
 ###################################
@@ -39,7 +36,7 @@ do
   pwd
 
   # Prüfe den GIT Status
-  status=$(git status | grep "auf dem selben Stand" | grep "feature\/qstag" | wc -l)
+  status=$(git status | grep "auf dem selben Stand" | wc -l)
   echo "Ausgabe: $status"
 
   if [ "$status" -ne 1 ]
@@ -47,8 +44,6 @@ do
     echo "Repo ist nicht aktuell!"
     echo "Führe git pull durch:"
     git pull
-    echo "Führe Jekyll aus:"
-    jekyll build
   else
     echo "Repo ist aktuell"
   fi
